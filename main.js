@@ -8,6 +8,7 @@ const launchBrowser= puppeteer.launch({
     defaultViewport: null,
     args:["--start-maximized"]
 });
+let page;
 launchBrowser.then(function(browser){
     console.log("Browser launched");
     const pagesArr= browser.pages();
@@ -16,10 +17,10 @@ launchBrowser.then(function(browser){
     console.log("got all tabs");
     //got current tab
     page= pages[0];
-    googlePage=page.goto("https://www.google.com/");
+    googlePage=page.goto("https://www.google.com/"); 
     return googlePage;
 }).then(function(){
-    waitForInputSelector= page.waitForSelector(".gLFyf.gsfi", {visible:true});
+    waitForInputSelector= page.waitForSelector(".gLFyf.gsfi", {visible:true}); 
     return waitForInputSelector;
 }).then(function(){
     console.log("google page opened");
